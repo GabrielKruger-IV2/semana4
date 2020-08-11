@@ -115,3 +115,9 @@ width: 40vw;
     transform: translateY(2px);
     background-color: #99aa9a;
 }
+:required:invalid{
+    border: 3px solid rgb(83, 0, 0);
+}
+:required:valid{
+    border: 3px solid green;
+}
