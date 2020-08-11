@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *{
     margin: 0;
     padding: 0;
@@ -114,3 +115,121 @@ width: 40vw;
     transform: translateY(2px);
     background-color: #99aa9a;
 }
+=======
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    font-weight: bolder ;
+
+}
+h3{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    text-decoration: none;
+}
+.corpo{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(153, 153, 153);
+}
+.cabecalho{
+  background-color: rgb(97, 97, 97);
+  top: 0;
+  position: absolute;
+  width: 100%;
+  height: 7vh;
+}
+
+a{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    color: blue;
+    margin: 2vw;
+    text-decoration: none;
+
+}
+.menu{
+    float: right;
+    margin-right: 1vw;
+    }
+    .menu ul{
+        padding:0px;
+        margin:0px;
+        list-style:none;
+        
+    }
+    .menu ul li{
+        display: inline;
+
+    }   
+
+
+#corpoFormulario{
+    background-color: grey;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.formulario{
+    background-color: grey;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-bottom: 20vh;
+    margin-top: 10vh;
+    padding: 5vh 5vw;
+    border-radius: 100px;
+    
+}
+
+.rodape{
+    
+    
+    bottom: 0vh;
+    position: absolute;
+    width: 100%;
+    background-color: rgb(97, 97, 97);
+}
+
+#titulo{
+    text-align: center;
+}
+
+
+
+#divtitulo{
+    text-align: center;
+    margin-bottom: 10vh;
+}
+.divs{
+margin-top: 4vh;
+}
+
+.inputs{
+width: 40vw;
+}
+
+#btnCadastrar{
+    width: 40vw;
+    height: 5vw;
+    border-radius: 20px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    background-color: #696969;
+    color: #000000;
+}
+#btnCadastrar:hover{
+
+    background-color: #a7a6a6;
+    color: #000000;
+    
+}
+#btnCadastrar:active{
+    transform: translateY(2px);
+    background-color: #99aa9a;
+}
+>>>>>>> origin/master
