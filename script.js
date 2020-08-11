@@ -73,38 +73,99 @@ dtEstilo.addEventListener("input", function () {
 });
 
 function evento() {
-    if (nome.value == "" || cpf.value == "" || rg.value == "" || dtNasc.value == "" || rua.value == "" || bairro.value == "" || cidade.value == "" || estado.value == "" || numero.value == "" || complemento.value == "" || cnh.options[cnh.selectedIndex].value == "0" || estCivil.options[cnh.selectedIndex].value == "0") {
-        alert('Algum campo ficou vazio');
-    }
-    if (nome.value == "") {
+    if (nome.value == "" && cpf.value == "" && rg.value == "" && dtNasc.value == "" && rua.value == "" && bairro.value == "" && cidade.value == "" && estado.value == "" && numero.value == "" && complemento.value == "" && cnh.options[cnh.selectedIndex].value == "0" && estCivil.options[cnh.selectedIndex].value == "0") {
+        alert('Todos os campos não foram preenchidos');
         nome.placeholder = "Preencha o nome";
-    }
-    if (cpf.value == "") {
         cpf.placeholder = "Preencha o cpf";
-    }
-    if (rg.value == "") {
         rg.placeholder = "Preencha o RG";
-    }
-    if (dtNasc.value == "") {
         dtNasc.placeholder = "Preencha a sua data de nascimento";
-    }
-    if (rua.value == "") {
         rua.placeholder = "Preencha a sua rua";
-    }
-    if (bairro.value == "") {
         bairro.placeholder = "Preencha o seu bairro";
-    }
-    if (cidade.value == "") {
         cidade.placeholder = "Preencha a sua cidade";
-    }
-    if (estado.value == "") {
         estado.placeholder = "Preencha o seu estado";
-    }
-    if (numero.value == "") {
         numero.placeholder = "Preencha o numero da sua casa";
-    }
-    if (complemento.value == "") {
         complemento.placeholder = "Preencha o complemento";
+    }else{
+        if(nome.value == "" && cpf.value == "" && rg.value == "" && dtNasc.value == ""){
+            alert('Esta faltando suas informações');
+            nome.placeholder = "Preencha o nome";
+            cpf.placeholder = "Preencha o cpf";
+            rg.placeholder = "Preencha o RG";
+            dtNasc.placeholder = "Preencha a sua data de nascimento";
+        }else{
+            if(rua.value == "" && bairro.value == "" && cidade.value == "" && estado.value == "" && numero.value == "" && complemento.value == ""){
+                alert('Esta faltando seu endereço');
+                bairro.placeholder = "Preencha o seu bairro";
+                cidade.placeholder = "Preencha a sua cidade";
+                estado.placeholder = "Preencha o seu estado";
+                numero.placeholder = "Preencha o numero da sua casa";
+                complemento.placeholder = "Preencha o complemento";
+            }else{
+                if(cnh.options[cnh.selectedIndex].value == "0" && estCivil.options[estCivil.selectedIndex].value == "0"){
+                    alert('Selecione as opções da sua CNH e seu estado Civil');
+                }else{
+                    if(nome.value == ""){
+                        alert('Preencha o seu nome');
+                        nome.placeholder = "Preencha o nome";
+                    }else{
+                        if(cpf.value == ""   ){
+                            alert('CPF não preenchido');
+                            cpf.placeholder = "Preencha o cpf dessa forma: 123.456.789-00";
+
+                        }else{
+                            if(rg.value == "" ||  rg.length.value < 12){
+                                alert('RG não preenchido');
+                                cpf.placeholder = "Preencha o cpf dessa forma: 12.345.678-9";
+                            }else{
+                                if(dtNasc.value == "" ){
+                                    alert('Data de nascimento não preenchida ');
+                                    dtNasc.placeholder = "Preencha a sua data de nascimento: XX/XX/XX";
+                                }else{
+                                    if(rua.value == ""){
+                                        alert('Rua não preenchida ');
+                                        rua.placeholder = "Preencha com o nome da sua rua";
+                                    }else{
+                                        if(bairro.value == "" ){
+                                            alert('Bairro não preenchido ');
+                                            bairro.placeholder = "Preencha com o nome do seu bairro";
+                                        }else{
+                                            if(cidade.value == ""){
+                                                alert('Cidade não preenchida ');
+                                                cidade.placeholder = "Preencha com o nome da sua cidade";
+                                            }else{
+                                                if(estado.value == ""){
+                                                    alert('Estado não preenchido ');
+                                                    estado.placeholder = "Preencha com o nome do seu estado";
+                                                }else{
+                                                    if(numero.value == ""){
+                                                        alert('Numero não preenchido ');
+                                                        numero.placeholder = "Preencha com o numero da sua casa";
+                                                    }else{
+                                                        if(complemento.value == "" ){
+                                                            alert('Complemento não preenchido ');
+                                                            complemento.placeholder = "Preencha com o complemento da sua casa ";
+                                                        }else{
+                                                            if(cnh.options[cnh.selectedIndex].value == "0"){
+                                                                alert('Tipo de CNH não escolhida ');
+                                                                
+                                                            }else{
+                                                                if(estCivil.options[estCivil.selectedIndex].value == "0"){
+                                                                    alert('Estado civil não escolhido ');
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
 }
