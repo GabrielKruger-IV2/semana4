@@ -50,6 +50,7 @@ rgEstilo.addEventListener("input", function () {
     }
 
 });
+
 const dtEstilo = document.getElementById('rg');
 var cont2 = 0;
 dtEstilo.addEventListener("input", function () {
