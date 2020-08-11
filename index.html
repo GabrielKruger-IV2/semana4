@@ -42,7 +42,7 @@
                     <label for="cpf">
                         <h3>CPF</h3>
                     </label>
-                    <input type="text" name="cpf" id="cpf" class="inputs" required value="" placeholder="">
+                    <input type="text" name="cpf" id="cpf" class="inputs" required value="" placeholder="" maxlength="14" pattern="[0-9]+.*">
 
                 </div>
 
@@ -52,7 +52,7 @@
                     <label for="rg">
                         <h3>RG</h3>
                     </label>
-                    <input type="text" name="rg" id="rg" class="inputs" required value="" placeholder="">
+                    <input type="text" name="rg" id="rg" class="inputs" required value="" placeholder="" maxlength="12" pattern="[0-9]+.*">
 
                 </div>
                 <div id="divDtNasc" class="divs">
@@ -67,21 +67,21 @@
 
                 <div id="divCNH" class="divs">
                     <h3>Tipo da CNH</h3>
-                    <select class="fundo" name="cor" id="cor" id="select">
+                    <select class="select" name="cnh" id="cnh">
                         <optgroup label="Tipo do produto" id="tipo">
                             <option value="0" selected="selected" disabled="disabled">Selecionar...</option>
-                            <option class="fundo" value="TipoA">Tipo A</option>
-                            <option class="fundo" value="TipoB">Tipo B</option>
+                            <option class="TipoA" value="TipoA">Tipo A</option>
+                            <option class="TipoB" value="TipoB">Tipo B</option>
                         </optgroup>
                     </select>
                 </div>
                 <div id="divEstCivil" class="divs">
                     <h3>Estado Civil</h3>
-                    <select class="fundo" name="cor" id="cor" id="select">
+                    <select class="select" name="estCivil" id="estCivil">
                         <optgroup label="Tipo do produto" id="tipo">
                             <option value="0" selected="selected" disabled="disabled">Selecionar...</option>
-                            <option class="fundo" value="Solteiro(a)">Solteiro(a)</option>
-                            <option class="fundo" value="Casado(a)">Casado(a)</option>
+                            <option class="solt" value="Solteiro(a)">Solteiro(a)</option>
+                            <option class="cas" value="Casado(a)">Casado(a)</option>
                         </optgroup>
                     </select>
                 </div>
