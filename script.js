@@ -170,3 +170,28 @@ function evento() {
     }
 
 }
+
+var mudanca = document.getElementById('cep');
+mudanca.addEventListener('change',function(){
+var cep = document.getElementById('cep').value;
+
+let xhr = new XMLHttpRequest();
+let url = "https://viacep.com.br/ws/" + cep + "/json/";
+
+xhr.open("GET", url ,true);
+xhr.send();
+
+xhr.onreadystatechange = function(){
+    if(xhr.readyState==4 && xhr.status==200){
+        let dadosJsonT = xhr.responseText;
+        let dadoJsonObj = JSON.parse(dadosJsonT);
+
+        document.getElementById('rua').value = dadoJsonObj.logradouro;
+        document.getElementById('bairro').value = dadoJsonObj.bairro;
+        document.getElementById('cidade').value = dadoJsonObj.localidade;
+        document.getElementById('estado').value = dadoJsonObj.uf;
+        
+    }
+}
+
+})
