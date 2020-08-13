@@ -87,113 +87,113 @@ function evento() {
         estado.placeholder = "Preencha o seu estado";
         numero.placeholder = "Preencha o numero da sua casa";
         complemento.placeholder = "Preencha o complemento";
-    }else{
-        if(nome.value == "" && cpf.value == "" && rg.value == "" && dtNasc.value == ""){
+    } else {
+        if (nome.value == "" && cpf.value == "" && rg.value == "" && dtNasc.value == "") {
             alert('Esta faltando suas informações');
             nome.placeholder = "Preencha o nome";
             cpf.placeholder = "Preencha o cpf";
             rg.placeholder = "Preencha o RG";
             dtNasc.placeholder = "Preencha a sua data de nascimento";
-        }else{
-            if(rua.value == "" && bairro.value == "" && cidade.value == "" && estado.value == "" && numero.value == "" && complemento.value == ""){
+        } else {
+            if (rua.value == "" && bairro.value == "" && cidade.value == "" && estado.value == "" && numero.value == "" && complemento.value == "") {
                 alert('Esta faltando seu endereço');
                 bairro.placeholder = "Preencha o seu bairro";
                 cidade.placeholder = "Preencha a sua cidade";
                 estado.placeholder = "Preencha o seu estado";
                 numero.placeholder = "Preencha o numero da sua casa";
                 complemento.placeholder = "Preencha o complemento";
-            }else{
-                if(cnh.options[cnh.selectedIndex].value == "0" && estCivil.options[estCivil.selectedIndex].value == "0"){
+            } else {
+                if (cnh.options[cnh.selectedIndex].value == "0" && estCivil.options[estCivil.selectedIndex].value == "0") {
                     alert('Selecione as opções da sua CNH e seu estado Civil');
-                }else{
-                    if(nome.value == ""){
+                } else {
+                    if (nome.value == "") {
                         alert('Preencha o seu nome');
                         nome.placeholder = "Preencha o nome";
-                    }else{
-                        if(cpf.value == ""   ){
+                    } else {
+                        if (cpf.value == "") {
                             alert('CPF não preenchido');
                             cpf.placeholder = "Preencha o cpf dessa forma: 123.456.789-00";
 
-                        }else{
-                            if(rg.value == "" ){
+                        } else {
+                            if (rg.value == "") {
                                 alert('RG não preenchido');
                                 cpf.placeholder = "Preencha o cpf dessa forma: 12.345.678-9";
-                            }else{
-                                if(dtNasc.value == "" ){
+                            } else {
+                                if (dtNasc.value == "") {
                                     alert('Data de nascimento não preenchida ');
                                     dtNasc.placeholder = "Preencha a sua data de nascimento: XX/XX/XX";
-                                }else{
-                                    if(rua.value == ""){
+                                } else {
+                                    if (rua.value == "") {
                                         alert('Rua não preenchida ');
                                         rua.placeholder = "Preencha com o nome da sua rua";
-                                    }else{
-                                        if(bairro.value == "" ){
+                                    } else {
+                                        if (bairro.value == "") {
                                             alert('Bairro não preenchido ');
                                             bairro.placeholder = "Preencha com o nome do seu bairro";
-                                        }else{
-                                            if(cidade.value == ""){
+                                        } else {
+                                            if (cidade.value == "") {
                                                 alert('Cidade não preenchida ');
                                                 cidade.placeholder = "Preencha com o nome da sua cidade";
-                                            }else{
-                                                if(estado.value == ""){
+                                            } else {
+                                                if (estado.value == "") {
                                                     alert('Estado não preenchido ');
                                                     estado.placeholder = "Preencha com o nome do seu estado";
-                                                }else{
-                                                    if(numero.value == ""){
+                                                } else {
+                                                    if (numero.value == "") {
                                                         alert('Numero não preenchido ');
                                                         numero.placeholder = "Preencha com o numero da sua casa";
-                                                    }else{
-                                                        if(complemento.value == "" ){
+                                                    } else {
+                                                        if (complemento.value == "") {
                                                             alert('Complemento não preenchido ');
                                                             complemento.placeholder = "Preencha com o complemento da sua casa ";
-                                                        }else{
-                                                            if(cnh.options[cnh.selectedIndex].value == "0"){
+                                                        } else {
+                                                            if (cnh.options[cnh.selectedIndex].value == "0") {
                                                                 alert('Tipo de CNH não escolhida ');
-                                                                
-                                                            }else{
-                                                                if(estCivil.options[estCivil.selectedIndex].value == "0"){
+
+                                                            } else {
+                                                                if (estCivil.options[estCivil.selectedIndex].value == "0") {
                                                                     alert('Estado civil não escolhido ');
-                                                                }else{
-                                                                    if(cep.value==""){
+                                                                } else {
+                                                                    if (cep.value == "") {
                                                                         alert('Preencha o cep')
-                                                                    }else{
-                                                                        const obj={
-                                                                            nome:nome.value,
-                                                                            CPF:cpf.value,
-                                                                            RG:rg.value,
-                                                                            data_nasc:dtNasc.value,
-                                                                            tipo_cnh:cnh.options[cnh.selectedIndex].value,
-                                                                            estado_civil:estCivil.options[estCivil.selectedIndex].value,
-                                                                            CEP:cep.value,
-                                                                            rua:rua.value,
-                                                                            bairro:bairro.value,
-                                                                            cidade:cidade.value,
-                                                                            estado:estado.value,
-                                                                            numero:numero.value,
-                                                                            complemento:complemento.value
-                                                                            
-                                                                        }
-                                                                        const obj_jason = JSON.stringify(obj);
-                                                                        
-                                                                        const xhr = new XMLHttpRequest();
-                                                                        
-                                                                        xhr.open("POST","https://beginner-api.herokuapp.com/save");
-                                                                        xhr.setRequestHeader("Content-type","application/json");
-                                                                        xhr.send(obj_jason);
-                                                                        xhr.onreadystatechange = function(){
-                                                                            
-                                                                        if(xhr.status==200 && xhr.readyState ==4){
-                                                                        
-                                                                            const result = JSON.parse(xhr.responseText);
-                                                                            if(result.Sucesso != undefined){
-                                                                             alert("Cadastro realizado com sucesso!");
-                                                                            }else{
-                                                                                alert("Erro, algum campo não foi preenchido corretamente")
-                                                                            }
+                                                                    } else {
+                                                                        const obj = {
+                                                                            nome: nome.value,
+                                                                            CPF: cpf.value,
+                                                                            RG: rg.value,
+                                                                            data_nasc: dtNasc.value,
+                                                                            tipo_cnh: cnh.options[cnh.selectedIndex].value,
+                                                                            estado_civil: estCivil.options[estCivil.selectedIndex].value,
+                                                                            CEP: cep.value,
+                                                                            rua: rua.value,
+                                                                            bairro: bairro.value,
+                                                                            cidade: cidade.value,
+                                                                            estado: estado.value,
+                                                                            numero: numero.value,
+                                                                            complemento: complemento.value
 
                                                                         }
+                                                                        const obj_jason = JSON.stringify(obj);
+
+                                                                        const xhr = new XMLHttpRequest();
+
+                                                                        xhr.open("POST", "https://beginner-api.herokuapp.com/save");
+                                                                        xhr.setRequestHeader("Content-type", "application/json");
+                                                                        xhr.send(obj_jason);
+                                                                        xhr.onreadystatechange = function () {
+
+                                                                            if (xhr.status == 200 && xhr.readyState == 4) {
+
+                                                                                const result = JSON.parse(xhr.responseText);
+                                                                                if (result.Sucesso != undefined) {
+                                                                                    alert("Cadastro realizado com sucesso!");
+                                                                                } else {
+                                                                                    alert("Erro, algum campo não foi preenchido corretamente")
+                                                                                }
+
+                                                                            }
                                                                         }
-                                                                        
+
                                                                     }
 
                                                                 }
@@ -216,26 +216,26 @@ function evento() {
 }
 
 var mudanca = document.getElementById('cep');
-mudanca.addEventListener('change',function(){
+mudanca.addEventListener('change', function () {
 
 
-let xhr = new XMLHttpRequest();
-let url = "https://viacep.com.br/ws/" + cep.value + "/json/";
+    let xhr = new XMLHttpRequest();
+    let url = "https://viacep.com.br/ws/" + cep.value + "/json/";
 
-xhr.open("GET", url ,true);
-xhr.send();
+    xhr.open("GET", url, true);
+    xhr.send();
 
-xhr.onreadystatechange = function(){
-    if(xhr.readyState==4 && xhr.status==200){
-        let dadosJsonT = xhr.responseText;
-        let dadoJsonObj = JSON.parse(dadosJsonT);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            let dadosJsonT = xhr.responseText;
+            let dadoJsonObj = JSON.parse(dadosJsonT);
 
-        document.getElementById('rua').value = dadoJsonObj.logradouro;
-        document.getElementById('bairro').value = dadoJsonObj.bairro;
-        document.getElementById('cidade').value = dadoJsonObj.localidade;
-        document.getElementById('estado').value = dadoJsonObj.uf;
-        
+            document.getElementById('rua').value = dadoJsonObj.logradouro;
+            document.getElementById('bairro').value = dadoJsonObj.bairro;
+            document.getElementById('cidade').value = dadoJsonObj.localidade;
+            document.getElementById('estado').value = dadoJsonObj.uf;
+
+        }
     }
-}
 
 })
