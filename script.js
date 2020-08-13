@@ -10,6 +10,7 @@ var cidade = document.getElementById('cidade');
 var estado = document.getElementById('estado');
 var numero = document.getElementById('numero');
 var complemento = document.getElementById('complemento');
+var cep = document.getElementById('cep');
 
 const cpfEstilo = document.getElementById('cpf');
 var cont = 0;
@@ -114,7 +115,7 @@ function evento() {
                             cpf.placeholder = "Preencha o cpf dessa forma: 123.456.789-00";
 
                         }else{
-                            if(rg.value == "" ||  rg.length.value < 12){
+                            if(rg.value == "" ){
                                 alert('RG não preenchido');
                                 cpf.placeholder = "Preencha o cpf dessa forma: 12.345.678-9";
                             }else{
@@ -152,6 +153,49 @@ function evento() {
                                                             }else{
                                                                 if(estCivil.options[estCivil.selectedIndex].value == "0"){
                                                                     alert('Estado civil não escolhido ');
+                                                                }else{
+                                                                    if(cep.value==""){
+                                                                        alert('Preencha o cep')
+                                                                    }else{
+                                                                        const obj={
+                                                                            nome:nome.value,
+                                                                            CPF:cpf.value,
+                                                                            RG:rg.value,
+                                                                            data_nasc:dtNasc.value,
+                                                                            tipo_cnh:cnh.options[cnh.selectedIndex].value,
+                                                                            estado_civil:estCivil.options[estCivil.selectedIndex].value,
+                                                                            CEP:cep.value,
+                                                                            rua:rua.value,
+                                                                            bairro:bairro.value,
+                                                                            cidade:cidade.value,
+                                                                            estado:estado.value,
+                                                                            numero:numero.value,
+                                                                            complemento:complemento.value
+                                                                            
+                                                                        }
+                                                                        const obj_jason = JSON.stringify(obj);
+                                                                        
+                                                                        const xhr = new XMLHttpRequest();
+                                                                        
+                                                                        xhr.open("POST","https://beginner-api.herokuapp.com/save");
+                                                                        xhr.setRequestHeader("Content-type","application/json");
+                                                                        xhr.send(obj_jason);
+                                                                        xhr.onreadystatechange = function(){
+                                                                            
+                                                                        if(xhr.status==200 && xhr.readyState ==4){
+                                                                        
+                                                                            const result = JSON.parse(xhr.responseText);
+                                                                            if(result.Sucesso != undefined){
+                                                                             alert("Cadastro realizado com sucesso!");
+                                                                            }else{
+                                                                                alert("Erro, algum campo não foi preenchido corretamente")
+                                                                            }
+
+                                                                        }
+                                                                        }
+                                                                        
+                                                                    }
+
                                                                 }
                                                             }
                                                         }
@@ -173,10 +217,10 @@ function evento() {
 
 var mudanca = document.getElementById('cep');
 mudanca.addEventListener('change',function(){
-var cep = document.getElementById('cep').value;
+
 
 let xhr = new XMLHttpRequest();
-let url = "https://viacep.com.br/ws/" + cep + "/json/";
+let url = "https://viacep.com.br/ws/" + cep.value + "/json/";
 
 xhr.open("GET", url ,true);
 xhr.send();
